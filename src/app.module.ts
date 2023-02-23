@@ -1,5 +1,6 @@
 import { HttpModule } from '@nestjs/axios';
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import AgentKeepAlive, { HttpsAgent }  from 'agentkeepalive';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -31,6 +32,7 @@ setInterval(() => {
 
   @Module({
   imports: [
+    ConfigModule.forRoot(),
     RequestModule,
     AuthModule,
     /*HttpModule.registerAsync({
